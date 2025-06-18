@@ -1,0 +1,33 @@
+<div *ngIf="filter == '3'||filter == '1'">
+<mat-card  *ngFor="let card of recses.arecss; index as i;" class="recCard1" [style.background] = "color" >
+  <button mat-button class="cardbut" (click)="open(this.card.id, this.card.diagnoz, this.card.status, this.card.dateof, this.card.srok, this.card.fio)">
+  <mat-card-title >Диагноз: {{this.card.diagnoz}}</mat-card-title>
+  <mat-card-subtitle>Статус: {{this.card.status}} </mat-card-subtitle>
+  <mat-card-content >Действует с {{this.card.dateof}}  {{this.card.srok}} дней</mat-card-content>
+  <!-- <mat-card-title >Прием у: Докторов Д.Д.</mat-card-title>
+  <mat-card-subtitle>Специальность: Педиатор </mat-card-subtitle>
+  <mat-card-subtitle>Кабинет: 111 </mat-card-subtitle>
+  <mat-card-content >Начало: 2023-05-25 c 15:00 Длительность 3 часа</mat-card-content> -->
+  </button>
+  <mat-card-actions align="end">
+    <button mat-raised-button disabled="false" id="btn" [style.background] = "color" (click)="open(this.card.id, this.card.diagnoz, this.card.status, this.card.dateof, this.card.srok, this.card.fio)">Подробнее</button>
+  </mat-card-actions>
+</mat-card> 
+</div>
+<div *ngIf="filter == '3'||filter == '2'">
+<mat-card *ngFor="let card of recses.drecss; index as i;" class="recCard2" [style.background] = "color" >
+  <button mat-button class="cardbut" (click)="open(this.card.id, this.card.diagnoz, this.card.status, this.card.dateof, this.card.srok,this.card.fio)">
+  <mat-card-title >Диагноз: {{this.card.diagnoz}} </mat-card-title>
+  <mat-card-subtitle>Статус: {{this.card.status}} </mat-card-subtitle>
+  <mat-card-content >Действует с {{this.card.dateof}}  {{this.card.srok}} дней</mat-card-content>
+    <!-- <mat-card-title >Прием у: Докторов Д.Д.</mat-card-title>
+  <mat-card-subtitle>Специальность: Педиатор </mat-card-subtitle>
+  <mat-card-subtitle>Кабинет: 111 </mat-card-subtitle>
+  <mat-card-content >Начало: 2023-05-25 c 15:00 Длительность 3 часа</mat-card-content> -->
+  </button>
+  <mat-card-actions align="end">
+    <button mat-raised-button disabled="false" id="btn" [style.background] = "color" (click)="open(this.card.id, this.card.diagnoz, this.card.status, this.card.dateof, this.card.srok, this.card.fio)">Подробнее</button>
+    <!-- <button mat-button class="cardbut" (click)="open(this.card.id, this.card.diagnoz, this.card.status, this.card.dateof, this.card.srok, this.card.fio)">Подробнее</button> -->
+  </mat-card-actions>
+</mat-card> 
+</div>

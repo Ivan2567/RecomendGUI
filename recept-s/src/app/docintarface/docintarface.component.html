@@ -1,0 +1,59 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="'navigation'"
+      [mode]="'over'"
+      [opened]="this.serV.data === true" >
+    <mat-toolbar class="filtertoolbar">
+      <div>Форма выписки рецепта</div>
+        <button 
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button align = "end"
+        (click)="close()" >
+        <!-- *ngIf="isHandset$ | async" -->
+        <mat-icon aria-label="Side nav toggle icon">keyboard_arrow_right</mat-icon>
+      </button>
+    </mat-toolbar>
+      <app-createrecform *ngIf="this.serV.loadcreaterecform"></app-createrecform>
+      <app-recform *ngIf="!this.serV.loadcreaterecform"></app-recform>
+  </mat-sidenav>
+  <mat-sidenav-content>
+<!-- Add Content Here -->
+
+<div class="filtertoolbar2">
+<mat-toolbar class="filtertoolbar1">
+    <form class="example-form">
+      <mat-form-field class="example-full-width" appearance="fill" [ngStyle]="{'width':'auto'}">
+        <mat-label>Пациент</mat-label>
+        <input matInput
+              aria-label="Полис"
+              [matAutocomplete]="auto"
+              [formControl]="stateCtrl">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let state of filteredStates | async" [value]="state.name + ' | ' + state.polis">
+            <!-- <img class="example-option-img" aria-hidden [src]="state.flag" height="25"> -->
+            <span>{{state.name}}</span> |
+            <small> {{state.polis}}</small>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+    <!-- <button *ngIf="this.serV.loadmedcards" type="button"mat-icon-button class="addbtn" align ="end"(click)="ofr()">Выписать рецепт</button> -->
+    <button type="button"mat-icon-button class="loadbtn" align ="end"(click)="c()">Загрузить</button>
+    
+</mat-toolbar >
+<mat-toolbar class="filtertoolbar2">
+      <div>Фильтрация:</div>
+      <mat-radio-group aria-label="Filter" color="primary"  [(ngModel)]="filter" value="3">
+      <mat-radio-button value="1">Действующие</mat-radio-button>
+      <mat-radio-button value="2">Завершенные</mat-radio-button>
+      <mat-radio-button value="3">Все</mat-radio-button>
+      </mat-radio-group>
+</mat-toolbar>
+</div>
+   <app-card *ngIf="this.serV.loadmedcards"  [filter]="filter"></app-card>
+    
+   <mat-toolbar class="footerbar">
+  </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

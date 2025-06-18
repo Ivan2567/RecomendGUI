@@ -1,0 +1,55 @@
+<mat-grid-list cols="3" rowHeight="61px" gutterSize="5px" class="lc">
+  <!-- <mat-grid-tile [rowspan]="1" [colspan]="3">
+      <mat-label>QR-код</mat-label>
+  </mat-grid-tile>
+  <mat-grid-tile [rowspan]="4" [colspan]="3"><img mat-grid-image *ngIf="this.someS.QR != '' "  [src]="thumbnail"  (error)="qr()" (load)="qr()"> <mat-spinner *ngIf="this.someS.QR == ''" ></mat-spinner> </mat-grid-tile> -->
+  <mat-grid-tile [rowspan]="1" [colspan]="1">
+    <mat-form-field class="input" hideRequiredMarker>
+      <mat-label>Диагноз</mat-label>
+      <input matInput [(ngModel)]="diagnoz">
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [rowspan]="1" [colspan]="1"></mat-grid-tile>
+  <mat-grid-tile [rowspan]="1" [colspan]="1">
+    <mat-form-field class="input" hideRequiredMarker>
+      <mat-label>Статус</mat-label>
+      <input matInput [(ngModel)]="status">
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [rowspan]="1" [colspan]="1">
+    <mat-form-field class="input" hideRequiredMarker>
+      <mat-label>Врач</mat-label>
+      <!-- Обманка -->
+      <input matInput [(ngModel)]="fio"> 
+      <!-- Обманка -->
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [rowspan]="1" [colspan]="1">
+    <mat-form-field class="input" hideRequiredMarker>
+      <mat-label>Дата выписки</mat-label>
+      <input matInput [(ngModel)]="dateof">
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [rowspan]="1" [colspan]="1">
+    <mat-form-field class="input" hideRequiredMarker>
+      <mat-label>Дейсвует дней</mat-label>
+      <input matInput [(ngModel)]="srok">
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [rowspan]="1" [colspan]="3">
+    <mat-label>Выписываемые средсва:</mat-label> 
+</mat-grid-tile>
+</mat-grid-list>
+<app-lecarstvo></app-lecarstvo>
+
+<mat-grid-list cols="3" rowHeight="61px" gutterSize="5px" class="lc2"s>
+  <mat-grid-tile [rowspan]="1" [colspan]="1">
+    <button mat-flat-button color="primary" (click)="add()">Добавить</button>
+  </mat-grid-tile>
+  <mat-grid-tile [rowspan]="1" [colspan]="1">
+    <button mat-flat-button color="primary" (click)="create()" >Выписать</button>
+  </mat-grid-tile>
+  <mat-grid-tile [rowspan]="1" [colspan]="1">
+    <button mat-flat-button color="primary" (click)="del()" >Убрать</button>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,32 @@
+
+<h2 mat-dialog-title>{{data.name}}</h2>
+<div mat-dialog-content class="addform">
+<mat-form-field appearance="fill" [ngStyle]="{'width': '100%'}">
+    <mat-label>Единица измерения</mat-label>
+    <input matInput [(ngModel)]="data.edizm" disabled = "true">
+  </mat-form-field>
+  <mat-form-field appearance="fill" [ngStyle]="{'width': '100%'}">
+    <mat-label>Способ приема</mat-label>
+    <input matInput [(ngModel)]="data.sppr" disabled = "true">
+  </mat-form-field>
+  <mat-form-field appearance="fill" [ngStyle]="{'width': '100%'}">
+    <mat-label>Количество</mat-label>
+    <input matInput type="number">
+  </mat-form-field>
+  <mat-form-field appearance="fill" [ngStyle]="{'width': '100%'}">
+    <mat-label>Описание применения</mat-label>
+    <input matInput>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="dialogactions">
+  <button mat-button (click)="onNoClick()">Назад</button>
+  <button mat-button [mat-dialog-close]="data">Добавить</button>
+</div>
+<style>
+.dialogactions{
+  justify-content: space-between;
+}
+.addform{
+  display: grid;
+}
+</style>
